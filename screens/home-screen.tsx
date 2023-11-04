@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
     color: '#1976d3',
     fontSize: 28,
     fontWeight: 'bold',
-    // marginTop: 20,
     alignSelf: 'center',
   },
   subtitleTextContainer: {
