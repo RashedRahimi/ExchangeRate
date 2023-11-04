@@ -1,8 +1,51 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import CurrenciesBox from '../components/currencies-box';
 const HomeScreen = () => {
+  const currenciesRate = [
+    {
+      currencyName: 'دلار',
+      buyPrice: '86.99',
+      sellPrice: '86.79',
+      icon: '🇺🇸',
+    },
+    {
+      currencyName: 'دلار فردایی',
+      buyPrice: '86.99',
+      sellPrice: '86.79',
+      icon: '🇺🇸',
+    },
+    {
+      currencyName: 'تومان نفد',
+      buyPrice: '86.99',
+      sellPrice: '86.79',
+      icon: '🇺🇸',
+    },
+    {
+      currencyName: 'تومان چک',
+      buyPrice: '86.99',
+      sellPrice: '86.79',
+      icon: '🇺🇸',
+    },
+    {
+      currencyName: 'کلدار',
+      buyPrice: '86.99',
+      sellPrice: '86.79',
+      icon: '🇺🇸',
+    },
+  ];
+  const renderItem = ({item}: any) => {
+    console.log(item);
+    return (
+      <CurrenciesBox
+        buyPrice={item.buyPrice}
+        sellPrice={item.sellPrice}
+        currencyName={item.currencyName}
+        icon={item.icon}
+      />
+    );
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.updateText}>آخرین بروز رسانی</Text>
@@ -22,10 +65,19 @@ const HomeScreen = () => {
           <Text style={styles.subtitleText}>خرید</Text>
           <Text style={[styles.subtitleText, {marginRight: 20}]}>ارز</Text>
         </View>
-        <CurrenciesBox />
-        <CurrenciesBox />
-        <CurrenciesBox />
-        <CurrenciesBox />
+        {/* <CurrenciesBox
+          currencyName={'دلار'}
+          buyPrice={'86.99'}
+          sellPrice={'86.79'}
+          icon={'🇺🇸'}
+        />
+        <CurrenciesBox
+          currencyName={''}
+          buyPrice={''}
+          sellPrice={''}
+          icon={''}
+        /> */}
+        <FlatList renderItem={renderItem} data={currenciesRate} />
       </View>
     </View>
   );

@@ -1,14 +1,23 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const CurrenciesBox = () => {
+type Props = {
+  currencyName: string;
+  buyPrice: string;
+  sellPrice: string;
+  icon: string;
+};
+
+const CurrenciesBox = ({currencyName, buyPrice, sellPrice, icon}: Props) => {
   return (
     <View style={styles.titleBoxInMainBox}>
-      <Text style={styles.subtitleText}>86.70</Text>
-      <Text style={styles.subtitleText}>86.90</Text>
-      <Text style={[styles.subtitleText, {marginRight: -60}]}>دلار</Text>
+      <Text style={styles.subtitleText}>{sellPrice}</Text>
+      <Text style={styles.subtitleText}>{buyPrice}</Text>
+      <Text style={[styles.subtitleText, {marginRight: -60}]}>
+        {currencyName}
+      </Text>
       <View>
-        <Text style={{fontSize: 18, color: '#FFD700'}}>🇺🇸</Text>
+        <Text style={{fontSize: 18, color: '#FFD700'}}>{icon}</Text>
       </View>
     </View>
   );
